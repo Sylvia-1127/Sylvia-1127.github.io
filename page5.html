@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>問題四</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+
+            background-image: url("images/stars.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px 60px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+
+        .option {
+            margin: 15px 0;
+            padding: 12px;
+            background-color: #1e90ff;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: #187bcd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>如果有機會選擇你的戰鬥技能，會選擇什麼?</h2>
+
+        <div class="option" onclick="chooseAnswer(2)">
+            (A) 遠程攻擊的輔助
+        </div>
+
+        <div class="option" onclick="chooseAnswer(3)">
+            (B) 攻擊力強的進戰劍士
+        </div>
+
+        <div class="option" onclick="chooseAnswer(4)">
+            (C) 靠智力想策略的一般人
+        </div>
+    </div>
+
+    <script>
+        function chooseAnswer(score) {
+            // 取得前面所有題目的總分
+            let total = parseInt(localStorage.getItem("score")) || 0;
+
+            // 加上這題的分數
+            total += score;
+
+            // 儲存更新後的分數
+            localStorage.setItem("score", total);
+
+            // 跳到第六頁（這裡可以是顯示結果的頁面）
+            window.location.href = "page6.html"; // 第六頁（結果頁）
+        }
+    </script>
+
+</body>
+</html>
