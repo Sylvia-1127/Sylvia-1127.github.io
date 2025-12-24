@@ -75,8 +75,22 @@
             // 儲存更新後的分數
             localStorage.setItem("score", total);
 
-            // 跳到第六頁（這裡可以是顯示結果的頁面）
-            window.location.href = "page6.html"; // 第六頁（結果頁）
+            // 根據總分跳轉到不同的頁面
+            if (total === 3) {
+                window.location.href = "page6.html";  // 跳到第六頁
+            } else if (total === 4) {
+                window.location.href = "page7.html";  // 跳到第七頁
+            } else if (total === 7) {
+                window.location.href = "page8.html";  // 跳到第八頁
+            } else if (total === 8) {
+                window.location.href = "page9.html";  // 跳到第九頁
+            } else if (total === 9) {
+                window.location.href = "page10.html"; // 跳到第十頁
+            } else if (total === 10) {
+                window.location.href = "page11.html"; // 跳到第十一頁
+            } else {
+                window.location.href = "page12.html"; // 如果沒有完全符合的條件，則跳到預設頁
+            }
         }
     </script>
 
