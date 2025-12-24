@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>問題一</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+
+            background-image: url("images/stars.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px 60px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+
+        .option {
+            display: block;
+            margin: 15px 0;
+            padding: 12px;
+            background-color: #1e90ff;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: #187bcd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>喜歡自己一個人完成事情還是有伙伴?</h2>
+
+        <div class="option" onclick="chooseAnswer(1)">
+            (A) 自己一個比較自由
+        </div>
+
+        <div class="option" onclick="chooseAnswer(2)">
+            (B) 當然要有夥伴阿
+        </div>
+    </div>
+
+    <script>
+        function chooseAnswer(score) {
+            // 取得目前分數（如果還沒有就設為 0）
+            let total = localStorage.getItem("score");
+            if (!total) {
+                total = 0;
+            }
+
+            // 加上這一題的分數
+            total = parseInt(total) + score;
+            localStorage.setItem("score", total);
+
+            // 跳到第三頁
+            window.location.href = "page3.html";
+        }
+    </script>
+
+</body>
+</html>
+
+
