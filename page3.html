@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>問題二</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+
+            background-image: url("images/stars.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px 60px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+
+        .option {
+            margin: 15px 0;
+            padding: 12px;
+            background-color: #1e90ff;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: #187bcd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>當你遇到一群因意外而被變成喪屍人類，你會有什麼樣的情緒?</h2>
+
+        <div class="option" onclick="chooseAnswer(1)">
+            (A) 格殺毋論
+        </div>
+
+        <div class="option" onclick="chooseAnswer(2)">
+            (B) 覺得很可憐，同情
+        </div>
+
+        <div class="option" onclick="chooseAnswer(3)">
+            (C) 會猶豫，但還是殺掉比較安全
+        </div>
+    </div>
+
+    <script>
+        function chooseAnswer(score) {
+            // 取得現有的分數，若沒有則為 0
+            let total = parseInt(localStorage.getItem("score")) || 0;
+            
+            // 加上這題選項的分數
+            total += score;
+            
+            // 儲存更新後的分數
+            localStorage.setItem("score", total);
+
+            // 跳到下一頁，這裡會是第四頁，或是結果頁
+            window.location.href = "page4.html"; // 第四頁（可以設計結果頁）
+        }
+    </script>
+
+</body>
+</html>
